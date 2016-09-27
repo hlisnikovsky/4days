@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require 'four_days/four_days'
+FourDays::FourDays.new(ARGV[0]).setup_application

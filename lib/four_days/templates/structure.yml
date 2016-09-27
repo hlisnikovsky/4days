@@ -1,0 +1,66 @@
+application_name: 'nova_app2'
+db:
+  type: 'postgresql'
+  username: 'postgres'
+  password: '12358'
+gems:
+  devise:
+#    model: 'user' #TODO
+    require: true
+    host_name: 'test_app.com'
+#    host_name: '' #TODO
+  pundit: #TODO
+  google_oauth: #TODO
+    client_id: '146970186625-9a6odep1oa8hnj133u4scvp6ul164cuk.apps.googleusercontent.com'
+    client_secret: 'cyAd8qYbRIcBBbFpULYmvYTa'
+    require: true
+  rolify: #TODO
+    roles:
+      - 'admin'
+      - 'user'
+  kaminari: #TODO
+  filerific: #TODO
+entities:
+  post:
+    model:
+      fields:
+        title:
+          type: 'string'
+          is_null: false
+        content:
+          type: 'text'
+        published_at:
+          type: 'datetime'
+          index: true
+        user_id:
+          type: 'integer'
+          is_null: false
+          index: true
+      validations:
+        title:
+          presence: true
+          uniqueness: true
+        user_id:
+          presence: true
+      relations:
+        user: 'belongs_to'
+        comment: 'has_many'
+    controller:
+      actions: #TODO
+        - 'show'
+        - 'new'
+        - 'create'
+        - 'edit'
+        - 'update'
+        - 'index'
+        - 'destroy'
+#    policies: #TODO
+#      admin: 'all'
+#      user:
+#        show: 'self'
+#        edit: 'self'
+#        update: 'self'
+#        permited_params:
+#          - 'title'
+#          - 'content'
+#          - 'published_at'

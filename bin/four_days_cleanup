@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require 'four_days/four_days_cleanup'
+FourDays::FourDaysCleanup.run(ARGV[0])

@@ -1,0 +1,7 @@
+<% content_for :title do %>
+    <%= human_name(collection) %>
+<% end %>
+
+<% collection.each do |resource| %>
+    <%= resource.inspect %>
+<% end %>
